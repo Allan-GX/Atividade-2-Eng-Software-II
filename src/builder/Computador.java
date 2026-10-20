@@ -1,7 +1,5 @@
 package builder;
 
-import java.security.InvalidParameterException;
-
 public class Computador {
 
     private String processador;
@@ -12,7 +10,7 @@ public class Computador {
     private String fonte;
     private String gabinete;
     private String placaDeVideo;
-    private String Cooler;
+    private String cooler;
 
     public Computador(Builder builder) {
         this.processador = builder.processador;
@@ -23,74 +21,68 @@ public class Computador {
         this.fonte = builder.fonte;
         this.gabinete = builder.gabinete;
         this.placaDeVideo = builder.placaDeVideo;
-        this.Cooler = builder.Cooler;
+        this.cooler = builder.cooler;
     }
 
     public static class Builder {
 
-        private String ;
-        private String ;
-        private String ;
-        private double ;
-        private double ;
-        private int ;
-        private String ;
-        private boolean ;
-        private String ;
+        private String processador;
+        private String tipoMemoria;
+        private double memoriaGb;
+        private String tipoArmazenamento;
+        private double armazenamentoGb;
+        private String fonte;
+        private String gabinete;
+        private String placaDeVideo;
+        private String cooler;
 
-        public Builder nome(String nome) {
-            this.nome = nome;
+        public Builder processador(String processador) {
+            this.processador = processador;
             return this;
         }
 
-        public Builder codigo(String codigo) {
-            this.codigo = codigo;
+        public Builder tipoMemoria (String tipoMemoria) {
+            this.tipoMemoria = tipoMemoria;
             return this;
         }
 
-        public Builder descricao(String descricao) {
-            this.descricao = descricao;
+        public Builder memoriaGB (double memoriaGb) {
+            this.memoriaGb = memoriaGb;
             return this;
         }
 
-        public Builder preco(double preco) {
-            this.preco = preco;
+        public Builder tipoArmazenamento (String tipoArmazenamento) {
+            this.tipoArmazenamento = tipoArmazenamento;
             return this;
         }
 
-        public Builder custo(double custo) {
-            this.custo = custo;
+        public Builder armazenamentoGb (double armazenamentoGb) {
+            this.armazenamentoGb = armazenamentoGb;
             return this;
         }
 
-        public Builder estoque(int estoque) {
-            if(estoque < 0) {
-                throw new InvalidParameterException("O valor do estoque deve ser maior ou igual a 0");
-            }
-            this.estoque = estoque;
+        public Builder fonte (String fonte) {
+            this.fonte = fonte;
             return this;
         }
 
-        public Builder unidade(String unidade) {
-            this.unidade = unidade;
+        public Builder gabinete(String gabinete) {
+            this.gabinete = gabinete;
             return this;
         }
 
-        public Builder ativo(boolean ativo) {
-            this.ativo = ativo;
+        public Builder placaDeVideo (String placaDeVideo) {
+            this.placaDeVideo = placaDeVideo;
             return this;
         }
 
-        public Builder ncm(String ncm) {
-            this.ncm = ncm;
+        public Builder cooler (String cooler) {
+            this.cooler = cooler;
             return this;
         }
+
 
         public Computador build() {
-            if(codigo == null || codigo.isEmpty()) {
-                throw new InvalidParameterException("O código é obrigatorio");
-            }
-
             return new Computador(this);
         }
     }
